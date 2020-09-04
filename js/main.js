@@ -8,6 +8,7 @@ const defalutElem = {
   todoForm: document.querySelector(".todo__form"),
   todoInput: document.querySelector(".todo__form input"),
   todoList: document.querySelector(".todo__list"),
+  background: document.querySelector(".bg__wrap"),
 };
 
 //시간을 나타내는 함수
@@ -19,7 +20,7 @@ function getTime() {
 
   defalutElem.clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
     minutes < 10 ? `0${minutes}` : minutes
-  }:${seconds < 10 ? `0${seconds}` : seconds}`;
+  }`;
 }
 
 //이름을 설정하는 함수
@@ -39,14 +40,17 @@ function handleSubmit(e) {
 }
 
 function askForName() {
+  localStorage.clear();
   defalutElem.nameForm.classList.add(SHOWING_CN);
+  defalutElem.todoForm.classList.remove(SHOWING_CN);
   defalutElem.nameForm.addEventListener("submit", handleSubmit);
 }
 
 function paintGreeting(text) {
   defalutElem.nameForm.classList.remove(SHOWING_CN);
   defalutElem.greeting.classList.add(SHOWING_CN);
-  defalutElem.greeting.innerText = `안녕하세요. ${text}님`;
+  defalutElem.todoForm.classList.add(SHOWING_CN);
+  defalutElem.greeting.innerText = `${text}님, 오늘도 힘내세요!`;
 }
 
 function loadName() {
@@ -82,8 +86,8 @@ function saveToDos() {
 
 function paintToDo(text) {
   const li = document.createElement("li");
-  const delBtn = document.createElement("button");
-  delBtn.innerText = "X";
+  const delBtn = document.createElement("i");
+  delBtn.setAttribute("class", "fas fa-times");
   delBtn.addEventListener("click", deleteTodo);
   const span = document.createElement("span");
   span.innerText = text;
@@ -122,9 +126,25 @@ function loadTodo() {
   defalutElem.todoForm.addEventListener("submit", handleTodoSubmit);
 }
 
+//background
+
+const IMG_NUMBER = 4;
+
+function paintImage(imgNumber) {
+  const imgs = `/imgs/${imgNumber + 1}.jpg`;
+  defalutElem.background.style.backgroundImage = `url('${imgs}')`;
+  defalutElem.background.style.height = `${innerHeight}px`;
+}
+
+function genRandom() {
+  const number = Math.floor(Math.random() * IMG_NUMBER);
+  paintImage(number);
+}
+
 addEventListener("load", () => {
   getTime();
   setInterval(getTime, 1000);
   loadName();
   loadTodo();
+  genRandom();
 });
