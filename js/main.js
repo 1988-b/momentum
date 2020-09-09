@@ -9,6 +9,9 @@ const defalutElem = {
   todoInput: document.querySelector(".todo__form input"),
   todoList: document.querySelector(".todo__list"),
   background: document.querySelector(".bg__wrap"),
+  searchInput: document.querySelector(".search__input"),
+  searchBtn: document.querySelector(".search__btn"),
+  searchForm: document.querySelector(".search__form")
 };
 
 //시간을 나타내는 함수
@@ -20,7 +23,7 @@ function getTime() {
 
   defalutElem.clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
     minutes < 10 ? `0${minutes}` : minutes
-  }`;
+    }`;
 }
 
 //이름을 설정하는 함수
@@ -126,12 +129,23 @@ function loadTodo() {
   defalutElem.todoForm.addEventListener("submit", handleTodoSubmit);
 }
 
+//search
+function searchCheck() {
+  if (!defalutElem.searchInput.value) {
+    defalutElem.searchInput.focus();
+    return false;
+  } else {
+    defalutElem.searchForm.submit();
+    defalutElem.searchInput.value = "";
+  }
+}
+
 //background
 
 const IMG_NUMBER = 4;
 
 function paintImage(imgNumber) {
-  const imgs = `/imgs/${imgNumber + 1}.jpg`;
+  const imgs = `imgs/${imgNumber + 1}.jpg`;
   defalutElem.background.style.backgroundImage = `url('${imgs}')`;
   defalutElem.background.style.height = `${innerHeight}px`;
 }

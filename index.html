@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Momentum</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
-      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
-      crossorigin="anonymous"
-    />
-    <script src="js/main.js" defer></script>
-  </head>
-  <body>
-    <div class="bg__wrap">
-      <div class="clock__wrap">
-        <h1 class="clock__title">시간</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Momentum</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+    integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous" />
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <div class="bg__wrap">
+    <form class="search__form" name="search__form" method=get action="http://www.google.co.kr/search"
+      onsubmit="return form searchCheck()" target="_blank">
+      <div class="search__wrap">
+        <i class="fab fa-google"></i><input type=text name=q size=25 maxlength=255 value="" class="search__input" />
+        <input type="button" name="btnG" onclick="searchCheck()" class="search__btn fas" value="&#xf002">
       </div>
-      <div class="name__wrap">
-        <form class="name__form">
-          <h2 class="name__title">이름(닉네임)을 적어주세요.</h2>
-          <input type="text" />
-        </form>
-        <h2 class="name__value">인사말</h2>
-      </div>
-      <div class="todo__wrap">
-        <form class="todo__form">
-          <h2 class="todo__title">오늘 잊지 말아야 할 일을 기록해보세요.</h2>
-          <input type="text" />
-        </form>
-        <ul class="todo__list"></ul>
-      </div>
+    </form>
+    <div class="clock__wrap">
+      <h1 class="clock__title">시간</h1>
     </div>
-  </body>
+    <div class="name__wrap">
+      <form class="name__form">
+        <h2 class="name__title">이름(닉네임)을 적어주세요.</h2>
+        <input type="text" />
+      </form>
+      <h2 class="name__value">인사말</h2>
+    </div>
+    <div class="todo__wrap">
+      <form class="todo__form">
+        <h2 class="todo__title">오늘 잊지 말아야 할 일을 기록해보세요.</h2>
+        <input type="text" />
+      </form>
+      <ul class="todo__list"></ul>
+    </div>
+  </div>
+</body>
+
 </html>

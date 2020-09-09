@@ -145,6 +145,29 @@ i {
   font-size: 1.5rem;
 }
 
+.search__wrap{
+  display:flex;
+  align-items: center;
+  position:absolute;
+  left:50px;
+  top:50px;
+}
+.fa-google{
+  color:#1d1d1f;
+}
+.fa-search{
+  color:#1d1d1f;
+}
+.search__input{
+  margin:0 5px;
+  border-bottom:1px solid #1d1d1f;
+  padding:5px 0.5em;}
+
+.fas{
+  font-size:1.5rem;
+}
+
+
 /* 공통 */
 .name__form,
 .name__value,
